@@ -81,7 +81,7 @@
 (ecb-activate)
 
 ;; iswitchb
-(iswitchb-default-keybindings)
+(iswitchb-mode)
 
 ;; Window resize
 (defun win-resize-top-or-bot ()
