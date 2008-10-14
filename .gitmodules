@@ -1,0 +1,9 @@
+[submodule "twilight-emacs"]
+  path = twilight-emacs
+  url = git://github.com/crafterm/twilight-emacs.git
+[submodule "cheat.el"]
+  path = cheat.el
+  url = git://github.com/defunkt/cheat.el.git
+[submodule "gist.el"]
+  path = gist.el
+  url = git://github.com/defunkt/gist.el.git
