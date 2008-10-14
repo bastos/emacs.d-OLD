@@ -83,6 +83,8 @@
 ;; iswitchb
 (iswitchb-mode)
 
+(tool-bar-mode nil)
+
 ;; Window resize
 (defun win-resize-top-or-bot ()
   "Figure out if the current window is on top, bottom or in the
