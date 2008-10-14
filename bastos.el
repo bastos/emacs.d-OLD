@@ -80,6 +80,9 @@
 (cua-mode)
 (ecb-activate)
 
+;; iswitchb
+(iswitchb-default-keybindings)
+
 ;; Window resize
 (defun win-resize-top-or-bot ()
   "Figure out if the current window is on top, bottom or in the
