@@ -53,17 +53,23 @@
 (require 'erlang-start)
 (require 'twittering-mode)
 
+;; Twitter mode
 (twittering-mode)
 (twittering-icon-mode t)
 
+;; Load local values 
 (load "local")
 
+;; Erlang config
 (defvar inferior-erlang-prompt-timeout t)
 
+;; Disable ecp tip
 (setq ecb-tip-of-the-day nil)
 
-
 (setq color-theme-is-global t)
+
+(set-face-background 'flymake-errline "red4")
+(set-face-background 'flymake-warnline "dark slate blue")
 
 ;; (set-default-font "Bitstream Vera Sans Mono-11")
 ;; (set-fontset-font (frame-parameter nil 'font)
