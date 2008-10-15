@@ -53,9 +53,9 @@
 (require 'erlang-start)
 (require 'twittering-mode)
 
-;; Twitter mode
-(twittering-mode)
-(twittering-icon-mode t)
+;; Twitter mode. Just moved to local.el
+;; (twittering-mode)
+;; (twittering-icon-mode t)
 
 ;; Load local values 
 (load "local")
