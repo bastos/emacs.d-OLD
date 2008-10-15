@@ -52,6 +52,8 @@
 (require 'cheat)
 (require 'erlang-start)
 (require 'twittering-mode)
+
+(twittering-mode)
 (twittering-icon-mode t)
 
 (load "local")
