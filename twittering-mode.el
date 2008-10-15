@@ -32,8 +32,8 @@
 
 ;;; Feature Request:
 
-;; URL : https://twitter.com/d00dle/statuses/577876082
-;; URL : https://twitter.com/d00dle/statuses/577879732
+;; URL : http://twitter.com/d00dle/statuses/577876082
+;; URL : http://twitter.com/d00dle/statuses/577879732
 ;; * Status Input from Popup buffer and C-cC-c to POST.
 ;; * Mark fav(star)
 ;; URL : http://code.nanigac.com/source/view/419
@@ -360,7 +360,7 @@
 	   (let ((nl "\r\n")
 		 request)
 	     (setq request
-		   (concat "GET https://twitter.com/" method-class "/" method
+		   (concat "GET http://twitter.com/" method-class "/" method
 			   ".xml"
 			   (when parameters
 			     (concat "?"
@@ -598,7 +598,7 @@ PARAMETERS is alist of URI parameters. ex) ((\"mode\" . \"view\") (\"page\" . \"
        (let ((nl "\r\n")
 	     request)
 	 (setq  request
-		(concat "POST https://twitter.com/" method-class "/" method ".xml"
+		(concat "POST http://twitter.com/" method-class "/" method ".xml"
 			(when parameters
 			  (concat "?"
 				  (mapconcat
@@ -730,7 +730,7 @@ If STATUS-DATUM is already in DATA-VAR, return nil. If not, return t."
       (add-text-properties
        0 (length user-name)
        `(mouse-face highlight
-		    uri ,(concat "https://twitter.com/" user-screen-name)
+		    uri ,(concat "http://twitter.com/" user-screen-name)
 		    face twittering-username-face)
        user-name)
 
@@ -739,7 +739,7 @@ If STATUS-DATUM is already in DATA-VAR, return nil. If not, return t."
        0 (length user-screen-name)
        `(mouse-face highlight
 		    face twittering-username-face
-		    uri ,(concat "https://twitter.com/" user-screen-name)
+		    uri ,(concat "http://twitter.com/" user-screen-name)
 		    face twittering-username-face)
        user-screen-name)
 
@@ -763,7 +763,7 @@ If STATUS-DATUM is already in DATA-VAR, return nil. If not, return t."
 		 `(mouse-face
 		   highlight
 		   face twittering-uri-face
-		   uri ,(concat "https://twitter.com/" screen-name))
+		   uri ,(concat "http://twitter.com/" screen-name))
 	       `(mouse-face highlight
 			    face twittering-uri-face
 			    uri ,uri))
@@ -1081,7 +1081,7 @@ If STATUS-DATUM is already in DATA-VAR, return nil. If not, return t."
 
 (defun twittering-get-status-url (username id)
   "Generate status URL."
-  (format "https://twitter.com/%s/statuses/%d" username id))
+  (format "http://twitter.com/%s/statuses/%d" username id))
 
 ;;;###autoload
 (defun twit ()
