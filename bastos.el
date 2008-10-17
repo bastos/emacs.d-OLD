@@ -54,7 +54,7 @@
 (require 'erlang-start)
 (require 'twittering-mode)
 (require 'icicles)
-
+(require 'alacarte)
 ;; icicles
 (icicle-mode 1) ; Turn on Icicle mode.
 
