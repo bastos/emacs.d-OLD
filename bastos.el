@@ -12,6 +12,7 @@
 (setq load-path (cons "~/.emacs.d/color-theme" load-path))
 (setq load-path (cons "~/.emacs.d/gist.el" load-path))
 (setq load-path (cons "~/.emacs.d/cheat.el" load-path))
+(setq load-path (cons "~/.emacs.d/icicles" load-path))
 
 ;; Erlang
 (setq load-path (cons  "/usr/lib/erlang/lib/tools-2.6.1/emacs"
@@ -52,6 +53,14 @@
 (require 'cheat)
 (require 'erlang-start)
 (require 'twittering-mode)
+(require 'icicles)
+
+;; icicles
+(icicle-mode 1) ; Turn on Icicle mode.
+
+;; iswitchb
+(iswitchb-mode t)
+;; (global-set-key "\C-x\C-b" 'iswitchb-buffer)
 
 ;; Twitter mode
 (twittering-mode)
@@ -88,9 +97,7 @@
 (cua-mode)
 (ecb-activate)
 
-;; iswitchb
-(iswitchb-mode)
-
+;; remove toolbar
 (tool-bar-mode nil)
 
 ;; Window resize
