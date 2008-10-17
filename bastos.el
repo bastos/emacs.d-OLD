@@ -62,9 +62,9 @@
 (iswitchb-mode t)
 ;; (global-set-key "\C-x\C-b" 'iswitchb-buffer)
 
-;; Twitter mode
-(twittering-mode)
-(twittering-icon-mode t)
+;; Twitter mode. Just moved to local.el
+;; (twittering-mode)
+;; (twittering-icon-mode t)
 
 ;; Load local values 
 (load "local")
