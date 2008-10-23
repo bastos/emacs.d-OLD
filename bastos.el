@@ -7,11 +7,13 @@
 
 ;; Some imports
 (setq load-path (cons "~/.emacs.d" load-path))
-(setq load-path (cons "~/.emacs.d/rails" load-path))
-(setq load-path (cons "~/.emacs.d/ruby-mode" load-path))
+
 (setq load-path (cons "~/.emacs.d/color-theme" load-path))
+
 (setq load-path (cons "~/.emacs.d/gist.el" load-path))
+
 (setq load-path (cons "~/.emacs.d/cheat.el" load-path))
+
 (setq load-path (cons "~/.emacs.d/icicles" load-path))
 
 ;; Erlang
@@ -27,6 +29,10 @@
 			      auto-mode-alist))
 
 ;; Ruby
+
+;; (setq load-path (cons "~/.emacs.d/emacs-rails" load-path))
+(setq load-path (cons "~/.emacs.d/ruby-mode" load-path))
+
 (autoload 'run-ruby "inf-ruby"
   "Run an inferior Ruby process")
 (autoload 'inf-ruby-keys "inf-ruby"
@@ -35,6 +41,16 @@
 	  '(lambda ()
 	     (inf-ruby-keys)
 	     ))
+
+;; (require 'rails)
+
+;; (require 'ido)
+;; (ido-mode t)
+
+;; Rinari
+(add-to-list 'load-path "~/.emacs.d/rinari")
+(require 'rinari)
+
 
 ;; Example: (set-key "<f11>" 'gdb)
 (defun set-key (kbd funct)
@@ -46,7 +62,6 @@
 (require 'ecb-autoloads)
 (require 'snippet)
 (require 'find-recursive) 
-(require 'rails)
 (require 'psvn)  
 (require 'color-theme)
 (require 'gist)
@@ -82,8 +97,8 @@
 
 (setq color-theme-is-global t)
 
-(set-face-background 'flymake-errline "red4")
-(set-face-background 'flymake-warnline "dark slate blue")
+;; (set-face-background 'flymake-errline "red4")
+;; (set-face-background 'flymake-warnline "dark slate blue")
 
 ;; (set-default-font "Bitstream Vera Sans Mono-11")
 ;; (set-fontset-font (frame-parameter nil 'font)

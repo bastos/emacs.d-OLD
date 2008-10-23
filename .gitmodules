@@ -10,3 +10,6 @@
 [submodule "rinari"]
 	path = rinari
 	url = git://github.com/eschulte/rinari.git
+[submodule "emacs-rails"]
+	path = emacs-rails
+	url = git://github.com/tomtt/emacs-rails.git
