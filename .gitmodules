@@ -7,3 +7,6 @@
 [submodule "gist.el"]
   path = gist.el
   url = git://github.com/defunkt/gist.el.git
+[submodule "rinari"]
+	path = rinari
+	url = git://github.com/eschulte/rinari.git
