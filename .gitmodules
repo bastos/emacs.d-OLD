@@ -13,3 +13,6 @@
 [submodule "emacs-rails"]
 	path = emacs-rails
 	url = git://github.com/tomtt/emacs-rails.git
+[submodule "fuzzy-find-in-project"]
+	path = fuzzy-find-in-project
+	url = git://github.com/avvo/fuzzy-find-in-project.git

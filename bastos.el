@@ -29,8 +29,7 @@
 			      auto-mode-alist))
 
 ;; Ruby
-
-;; (setq load-path (cons "~/.emacs.d/emacs-rails" load-path))
+(setq load-path (cons "~/.emacs.d/emacs-rails" load-path))
 (setq load-path (cons "~/.emacs.d/ruby-mode" load-path))
 
 (autoload 'run-ruby "inf-ruby"
@@ -42,15 +41,20 @@
 	     (inf-ruby-keys)
 	     ))
 
-;; (require 'rails)
+(require 'rails)
 
 ;; (require 'ido)
 ;; (ido-mode t)
 
 ;; Rinari
-(add-to-list 'load-path "~/.emacs.d/rinari")
-(require 'rinari)
+;; (add-to-list 'load-path "~/.emacs.d/rinari")
+;; (require 'rinari)
 
+;; Fuzzy Find in Project
+;; GEM: sudo gem install --source http://gems.github.com jamis-fuzzy_file_finder
+;; Example:  (fuzzy-find-project-root "~/path/to/project")
+(add-to-list 'load-path "~/.emacs.d/fuzzy-find-in-project")
+(require 'fuzzy-find-in-project)
 
 ;; Example: (set-key "<f11>" 'gdb)
 (defun set-key (kbd funct)
@@ -119,6 +123,10 @@
 
 ;; remove toolbar
 (tool-bar-mode nil)
+
+;; Aliases
+
+(defalias 'qrr 'query-replace-regexp)
 
 ;; Window resize
 (defun win-resize-top-or-bot ()
