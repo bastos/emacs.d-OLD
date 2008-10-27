@@ -124,6 +124,15 @@
 ;; remove toolbar
 (tool-bar-mode nil)
 
+;; Count TODO's: http://gist.github.com/20152
+(defun count-todos-in-buffer ()
+  (interactive)
+  (save-excursion
+    (goto-char (point-min))
+    (message "Number of TODO's in the current buffer: %d" (count-matches "TODO"))))
+    
+(set-key "<C-f7>" 'count-todos-in-buffer)
+
 ;; Aliases
 
 (defalias 'qrr 'query-replace-regexp)
