@@ -136,6 +136,9 @@
   (ding t)
   (y-or-n-p prompt))
 
+;; go to line
+(global-set-key (kbd "C-M-g") 'goto-line)
+
 ;; remove toolbar
 (tool-bar-mode nil)
 
