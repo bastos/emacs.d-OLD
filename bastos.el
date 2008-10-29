@@ -131,6 +131,10 @@
 ;;(recentf-open-files nil "*Recent Files*")
 (setq recentf-max-saved-items 1200)
 
+(defun yes-or-no-p (prompt)
+  "replace tedious yes/no+enter with y/n keypress"
+  (ding t)
+  (y-or-n-p prompt))
 
 ;; remove toolbar
 (tool-bar-mode nil)
