@@ -121,6 +121,17 @@
 (cua-mode)
 (ecb-activate)
 
+;; Comment region
+(defalias 'cr 'comment-region)
+(defalias 'ucr 'uncomment-region)
+
+;; Set up recentf so I can get a list of recent files when I start
+(recentf-mode 1)
+
+;;(recentf-open-files nil "*Recent Files*")
+(setq recentf-max-saved-items 1200)
+
+
 ;; remove toolbar
 (tool-bar-mode nil)
 
@@ -132,6 +143,9 @@
     (message "Number of TODO's in the current buffer: %d" (count-matches "TODO"))))
     
 (set-key "<C-f7>" 'count-todos-in-buffer)
+
+;; turn off the annoying alarm bell
+(setq ring-bell-function 'ignore)
 
 ;; Aliases
 
