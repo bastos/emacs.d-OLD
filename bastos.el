@@ -116,8 +116,8 @@
 (color-theme-twilight)
 ; pick your font
 ; M-x describe-font
-(setq default-frame-alist '((font . " -unknown-DejaVu Sans-normal-normal-normal-*-16-*-*-*-*-0-iso8859-1")))
-
+;; (setq default-frame-alist '((font . " -unknown-DejaVu Sans-normal-normal-normal-*-16-*-*-*-*-0-iso8859-1")))
+(setq default-frame-alist '((font . "-misc-dejavu sans mono-medium-r-normal--19-137-100-100-m-110-microsoft-cp1252")))
 (cua-mode)
 (ecb-activate)
 
