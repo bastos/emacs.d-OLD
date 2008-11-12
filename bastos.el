@@ -72,7 +72,7 @@
 (require 'cheat)
 (require 'erlang-start)
 (require 'twittering-mode)
-(require 'icicles)
+;; (require 'icicles)
 (require 'lacarte)
 
 ;; JS Mode
@@ -80,8 +80,13 @@
 ;; (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 
 ;; icicles
-(icicle-mode 1) ; Turn on Icicle mode.
+;; (icicle-mode 1) ; Turn on Icicle mode.
+
+;; ido-mode
 (ido-mode 1)
+(setq ido-enable-flex-matching t)
+(ido-everywhere 1)
+
 ;; iswitchb
 ;;(iswitchb-mode t)
 ;; (global-set-key "\C-x\C-b" 'iswitchb-buffer)
@@ -232,3 +237,15 @@ middle"
 ;; (global-set-key [C-M-left] 'win-resize-enlarge-vert)
 ;; (global-set-key [C-M-right] 'win-resize-minimize-vert)
 
+;; See http://www.emacswiki.org/cgi-bin/wiki/InteractivelyDoThings#toc5
+(defun ido-execute ()
+  (interactive)
+  (call-interactively
+   (intern
+    (ido-completing-read
+     "M-x "
+     (let (cmd-list)
+       (mapatoms (lambda (S) (when (commandp S) (setq cmd-list (cons (format "%S" S) cmd-list)))))
+       cmd-list)))))
+
+(global-set-key "\M-x" 'ido-execute)
