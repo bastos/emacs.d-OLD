@@ -81,9 +81,9 @@
 
 ;; icicles
 (icicle-mode 1) ; Turn on Icicle mode.
-
+(ido-mode 1)
 ;; iswitchb
-(iswitchb-mode t)
+;;(iswitchb-mode t)
 ;; (global-set-key "\C-x\C-b" 'iswitchb-buffer)
 
 ;; Twitter mode. Just moved to local.el
