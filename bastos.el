@@ -215,6 +215,7 @@ middle"
 
 ;; Set keys
 (set-key "<f12>"  'ecb-toggle-ecb-windows)
+(set-key "<f11>"  'menu-bar-mode)
 (global-set-key [C-tab] 'other-window) ;; vimy window switching
 (server-start)
 ;;(set-key "<f12>"  'win-resize-enlarge-vert)
