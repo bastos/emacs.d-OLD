@@ -2,3 +2,4 @@ local.el
 session.*
 *~
 game/
+tramp
