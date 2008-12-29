@@ -16,6 +16,8 @@
 
 (setq load-path (cons "~/.emacs.d/icicles" load-path))
 
+(setq load-path (cons "~/.emacs.d/textmate.el" load-path))
+
 ;; Erlang
 (setq load-path (cons  "/usr/lib/erlang/lib/tools-2.6.1/emacs"
       load-path))
@@ -63,7 +65,7 @@
 (load-file "/usr/share/emacs/site-lisp/cedet/common/cedet.el")
 
 ;; Some requires
-(require 'ecb-autoloads)
+;; (require 'ecb-autoloads)
 (require 'snippet)
 (require 'find-recursive) 
 (require 'psvn)  
@@ -74,6 +76,10 @@
 (require 'twittering-mode)
 ;; (require 'icicles)
 (require 'lacarte)
+(require 'textmate)
+
+;; Turn on textmate mode http://github.com/defunkt/textmate.el/tree/master
+(textmate-mode)
 
 ;; JS Mode
 ;; (autoload 'js2-mode "js2" nil t)
@@ -91,18 +97,14 @@
 ;;(iswitchb-mode t)
 ;; (global-set-key "\C-x\C-b" 'iswitchb-buffer)
 
-;; Twitter mode. Just moved to local.el
-;; (twittering-mode)
-;; (twittering-icon-mode t)
-
 ;; Load local values 
 (load "local")
 
 ;; Erlang config
 (defvar inferior-erlang-prompt-timeout t)
 
-;; Disable ecp tip
-(setq ecb-tip-of-the-day nil)
+;; Disable ecb tip
+;; (setq ecb-tip-of-the-day nil)
 
 (setq color-theme-is-global t)
 
@@ -121,12 +123,10 @@
 (color-theme-twilight)
 ; pick your font
 ; M-x describe-font
-;; (setq default-frame-alist '((font . " -unknown-DejaVu Sans-normal-normal-normal-*-16-*-*-*-*-0-iso8859-1")))
-;; (setq default-frame-alist '((font . "-misc-dejavu sans mono-medium-r-normal--19-137-100-100-m-110-microsoft-cp1252")))
-;; (setq default-frame-alist '((font . "-unknown-DejaVu Sans Mono-normal-normal-normal-*-16-*-*-*-m-0-iso8859-1")))
 (setq default-frame-alist '((font . "-unknown-Monaco-normal-normal-normal-*-*-*-*-*-m-0-iso10646-1")))
 (cua-mode)
-(ecb-activate)
+
+;; (ecb-activate)
 
 ;; Comment region
 (defalias 'cr 'comment-region)
@@ -221,7 +221,7 @@ middle"
    ((equal "mid" (win-resize-left-or-right)) (enlarge-window-horizontally 1))))
 
 ;; Set keys
-(set-key "<f12>"  'ecb-toggle-ecb-windows)
+;; (set-key "<f12>"  'ecb-toggle-ecb-windows)
 (set-key "<f11>"  'menu-bar-mode)
 (global-set-key [C-tab] 'other-window) ;; vimy window switching
 (server-start)
