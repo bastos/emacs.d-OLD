@@ -19,10 +19,10 @@
 (setq load-path (cons "~/.emacs.d/textmate.el" load-path))
 
 ;; Erlang
-(setq load-path (cons  "/usr/lib/erlang/lib/tools-2.6.1/emacs"
-      load-path))
-      (setq erlang-root-dir "/usr/lib/erlang")
-      (setq exec-path (cons "/usr/lib/erlang/bin" exec-path))
+;; (setq load-path (cons  "/usr/lib/erlang/lib/tools-2.6.1/emacs"
+;;      load-path))
+;;      (setq erlang-root-dir "/usr/lib/erlang")
+;;      (setq exec-path (cons "/usr/lib/erlang/bin" exec-path))
 
 ;; Python
 (autoload 'python-mode "python-mode.el" "Python mode." t)
@@ -62,8 +62,8 @@
 (defun set-key (kbd funct)
   (global-set-key (read-kbd-macro kbd) funct))
 
-(load-file "/usr/share/emacs/site-lisp/cedet/common/cedet.el")
-
+;;(load-file "/usr/share/emacs/site-lisp/cedet/common/cedet.el")
+(require 'cedet)
 ;; Some requires
 ;; (require 'ecb-autoloads)
 (require 'snippet)
@@ -72,7 +72,7 @@
 (require 'color-theme)
 (require 'gist)
 (require 'cheat)
-(require 'erlang-start)
+;; (require 'erlang-start)
 (require 'twittering-mode)
 ;; (require 'icicles)
 (require 'lacarte)
@@ -101,7 +101,7 @@
 (load "local")
 
 ;; Erlang config
-(defvar inferior-erlang-prompt-timeout t)
+;; (defvar inferior-erlang-prompt-timeout t)
 
 ;; Disable ecb tip
 ;; (setq ecb-tip-of-the-day nil)
