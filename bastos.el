@@ -18,6 +18,15 @@
 
 (setq load-path (cons "~/.emacs.d/textmate.el" load-path))
 
+(setq load-path (cons "~/.emacs.d/jdee/lisp" load-path))
+
+(setq load-path (cons "~/.emacs.d/android-mode" load-path))
+
+(setq load-path (cons "~/.emacs.d/markdown-mode" load-path))
+
+;;(add-to-list 'load-path (expand-file-name "~/emacs/site/elib"))
+
+
 ;; Erlang
 ;; (setq load-path (cons  "/usr/lib/erlang/lib/tools-2.6.1/emacs"
 ;;      load-path))
@@ -77,9 +86,18 @@
 ;; (require 'icicles)
 (require 'lacarte)
 (require 'textmate)
-
+(require 'jde)
 ;; Turn on textmate mode http://github.com/defunkt/textmate.el/tree/master
 (textmate-mode)
+(require 'android-mode)
+
+(require 'markdown-mode)
+
+;; Android Mode
+(defcustom android-mode-sdk-dir "~/Apps/android-sdk-linux_86"
+  "Android SDK path"
+  :group 'android-mode
+  :type '(string))
 
 ;; JS Mode
 ;; (autoload 'js2-mode "js2" nil t)

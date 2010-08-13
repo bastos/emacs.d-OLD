@@ -19,3 +19,6 @@
 [submodule "textmate.el"]
 	path = textmate.el
 	url = git://github.com/defunkt/textmate.el.git
+[submodule "android-mode"]
+	path = android-mode
+	url = git://github.com/remvee/android-mode.git
