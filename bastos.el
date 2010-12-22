@@ -1,10 +1,3 @@
-(custom-set-variables
- '(column-number-mode t)
- '(ecb-options-version "2.32")
- '(show-paren-mode t)
- '(speedbar-frame-parameters (quote ((minibuffer) (width . 20) (border-width . 0) (menu-bar-lines . 0) (tool-bar-lines . 0) (unsplittable . t) (set-background-color "black"))))
- '(transient-mark-mode t))
-
 ;; Some imports
 (setq load-path (cons "~/.emacs.d" load-path))
 
@@ -25,18 +18,9 @@
 (setq load-path (cons "~/.emacs.d/markdown-mode" load-path))
 
 ;; Javascript
+;; emacs --batch --eval '(byte-compile-file "js2-mode.el")'
 (autoload 'js2-mode "js2" nil t)
-
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
-
-;;(add-to-list 'load-path (expand-file-name "~/emacs/site/elib"))
-
-
-;; Erlang
-;; (setq load-path (cons  "/usr/lib/erlang/lib/tools-2.6.1/emacs"
-;;      load-path))
-;;      (setq erlang-root-dir "/usr/lib/erlang")
-;;      (setq exec-path (cons "/usr/lib/erlang/bin" exec-path))
 
 ;; Python
 (autoload 'python-mode "python-mode.el" "Python mode." t)
@@ -67,8 +51,6 @@
 ;; (require 'rinari)
 
 ;; Fuzzy Find in Project
-;; GEM: sudo gem install --source http://gems.github.com jamis-fuzzy_file_finder
-;; Example:  (fuzzy-find-project-root "~/path/to/project")
 (add-to-list 'load-path "~/.emacs.d/fuzzy-find-in-project")
 (require 'fuzzy-find-in-project)
 
@@ -77,7 +59,7 @@
   (global-set-key (read-kbd-macro kbd) funct))
 
 ;;(load-file "/usr/share/emacs/site-lisp/cedet/common/cedet.el")
-(require 'cedet)
+;;(require 'cedet)
 ;; Some requires
 ;; (require 'ecb-autoloads)
 (require 'snippet)
@@ -91,7 +73,7 @@
 ;; (require 'icicles)
 (require 'lacarte)
 (require 'textmate)
-(require 'jde)
+;;(require 'jde)
 ;; Turn on textmate mode http://github.com/defunkt/textmate.el/tree/master
 (textmate-mode)
 (require 'android-mode)
@@ -108,46 +90,19 @@
 ;; (autoload 'js2-mode "js2" nil t)
 ;; (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 
-;; icicles
-;; (icicle-mode 1) ; Turn on Icicle mode.
-
 ;; ido-mode
 (ido-mode 1)
 (setq ido-enable-flex-matching t)
 (ido-everywhere 1)
 
-;; iswitchb
-;;(iswitchb-mode t)
-;; (global-set-key "\C-x\C-b" 'iswitchb-buffer)
-
-;; Load local values 
-(load "local")
-
-;; Erlang config
-;; (defvar inferior-erlang-prompt-timeout t)
-
-;; Disable ecb tip
-;; (setq ecb-tip-of-the-day nil)
-
 (setq color-theme-is-global t)
 
-;; (set-face-background 'flymake-errline "red4")
-;; (set-face-background 'flymake-warnline "dark slate blue")
-
-;; (set-default-font "Bitstream Vera Sans Mono-11")
-;; (set-fontset-font (frame-parameter nil 'font)
-;; 'han '("cwTeXHeiBold" . "unicode-bmp"))
-
-;; (require 'color-theme)
-;; (color-theme-initialize)
-;; (setq color-theme-is-global t)
-
-(load-file "~/.emacs.d/twilight-emacs/color-theme-twilight.el")
-(color-theme-twilight)
+;;(load-file "~/.emacs.d/twilight-emacs/color-theme-twilight.el")
+;;(color-theme-twilight)
 ; pick your font
 ; M-x describe-font
 (setq default-frame-alist '((font . "-unknown-Monaco-normal-normal-normal-*-*-*-*-*-m-0-iso10646-1")))
-(cua-mode)
+;;(cua-mode)
 
 ;; (ecb-activate)
 
@@ -243,22 +198,9 @@ middle"
    ((equal "right" (win-resize-left-or-right)) (enlarge-window-horizontally -1))
    ((equal "mid" (win-resize-left-or-right)) (enlarge-window-horizontally 1))))
 
-;; Set keys
-;; (set-key "<f12>"  'ecb-toggle-ecb-windows)
 (set-key "<f11>"  'menu-bar-mode)
 (global-set-key [C-tab] 'other-window) ;; vimy window switching
 (server-start)
-;;(set-key "<f12>"  'win-resize-enlarge-vert)
-;;(set-key "<f11>"  'win-resize-minimize-vert)
-
-;; (global-set-key [C-M-down] 'win-resize-minimize-vert)
-;; (global-set-key [C-M-up] 'win-resize-enlarge-vert)
-;; (global-set-key [C-M-left] 'win-resize-minimize-horiz)
-;; (global-set-key [C-M-right] 'win-resize-enlarge-horiz)
-;; (global-set-key [C-M-up] 'win-resize-enlarge-horiz)
-;; (global-set-key [C-M-down] 'win-resize-minimize-horiz)
-;; (global-set-key [C-M-left] 'win-resize-enlarge-vert)
-;; (global-set-key [C-M-right] 'win-resize-minimize-vert)
 
 ;; See http://www.emacswiki.org/cgi-bin/wiki/InteractivelyDoThings#toc5
 (defun ido-execute ()
