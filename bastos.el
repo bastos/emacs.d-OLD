@@ -101,7 +101,7 @@
 ;;(color-theme-twilight)
 ; pick your font
 ; M-x describe-font
-(setq default-frame-alist '((font . "-unknown-Monaco-normal-normal-normal-*-*-*-*-*-m-0-iso10646-1")))
+(setq default-frame-alist '((font . "-unknown-Monaco-normal-normal-normal-*-14-*-*-*-m-0-iso10646-1")))
 ;;(cua-mode)
 
 ;; (ecb-activate)
