@@ -84,6 +84,10 @@
 (require 'powerline)
 (powerline-default)
 
+;; Theme
+(require 'tomorrow-theme)
+(load-theme 'tomorrow t)
+
 ;; Android Mode
 (defcustom android-mode-sdk-dir "~/Apps/android-sdk-linux_86"
   "Android SDK path"
@@ -218,3 +222,14 @@ middle"
        cmd-list)))))
 
 (global-set-key "\M-x" 'ido-execute)
+
+;; Powerline
+(setq powerline-color1 "#ffffff")
+(setq powerline-color2 "#333333")
+
+(set-face-attribute 'mode-line nil
+                    :foreground "#ffffff"
+                    :background "#666666"
+                    :box nil)
+(set-face-attribute 'mode-line-inactive nil
+                    :box nil)
