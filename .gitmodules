@@ -15,10 +15,13 @@
 	url = git://github.com/tomtt/emacs-rails.git
 [submodule "fuzzy-find-in-project"]
 	path = fuzzy-find-in-project
-	url = git://github.com/avvo/fuzzy-find-in-project.git
+	url = git://github.com/justinweiss/fuzzy-find-in-project.git
 [submodule "textmate.el"]
 	path = textmate.el
 	url = git://github.com/defunkt/textmate.el.git
 [submodule "android-mode"]
 	path = android-mode
 	url = git://github.com/remvee/android-mode.git
+[submodule "powerline"]
+	path = powerline
+	url = git://github.com/milkypostman/powerline.git

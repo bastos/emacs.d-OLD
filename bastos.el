@@ -13,7 +13,8 @@
 
 (setq load-path (cons "~/.emacs.d/jdee/lisp" load-path))
 
-(setq load-path (cons "~/.emacs.d/android-mode" load-path))
+(setq load-path (cons "~/.emacs.d/powerline" load-path))
+;; (setq load-path (cons "~/.emacs.d/android-mode" load-path))
 
 (setq load-path (cons "~/.emacs.d/markdown-mode" load-path))
 
@@ -69,16 +70,19 @@
 (require 'gist)
 (require 'cheat)
 ;; (require 'erlang-start)
-(require 'twittering-mode)
+;; (require 'twittering-mode)
 ;; (require 'icicles)
 (require 'lacarte)
 (require 'textmate)
 ;;(require 'jde)
 ;; Turn on textmate mode http://github.com/defunkt/textmate.el/tree/master
 (textmate-mode)
-(require 'android-mode)
+;; (require 'android-mode)
 
 (require 'markdown-mode)
+
+(require 'powerline)
+(powerline-default)
 
 ;; Android Mode
 (defcustom android-mode-sdk-dir "~/Apps/android-sdk-linux_86"
@@ -125,7 +129,7 @@
 (global-set-key (kbd "C-M-g") 'goto-line)
 
 ;; remove toolbar
-(tool-bar-mode nil)
+(tool-bar-mode 0)
 
 ;; Count TODO's: http://gist.github.com/20152
 (defun count-todos-in-buffer ()
