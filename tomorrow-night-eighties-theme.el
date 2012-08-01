@@ -1,8 +1,8 @@
-;;; tomorrow-theme.el --- custom theme for faces
+;;; tomorrow-night-eighties-theme.el --- custom theme for faces
 
 ;;; Commentary:
 ;;
-;;; Tomorrow Theme
+;;; Tomorrow Night Eighties Theme
 ;;
 ;; Originally by Chris Kempson https://github.com/ChrisKempson/Tomorrow-Theme
 ;; Ported to GNU Emacs by Chris Charles
@@ -10,25 +10,25 @@
 
 ;;; Code:
 
-(deftheme tomorrow
+(deftheme tomorrow-night-eighties
   "A Pastel Coloured Theme")
 
-(let ((background "#ffffff")
-      (current-line "#e9efff")
-      (selection "#d6d6d6")
-      (foreground "#4d4d4c")
-      (comment "#8e908c")
-      (cursor "#aeafad")
-      (red "#c82829")
-      (orange "#f5871f")
-      (yellow "#eab700")
-      (green "#718c00")
-      (aqua "#3e999f")
-      (blue "#4271ae")
-      (purple "#8959a8"))
+(let ((background "#2d2d2d")
+      (current-line "#393939")
+      (selection "#515151")
+      (foreground "#cccccc")
+      (comment "#999999")
+      (cursor "#cccccc")
+      (red "#f2777a")
+      (orange "#f99157")
+      (yellow "#ffcc66")
+      (green "#99cc99")
+      (aqua "#66cccc")
+      (blue "#6699cc")
+      (purple "#cc99cc"))
 
   (custom-theme-set-faces
-   'tomorrow
+   'tomorrow-night-eighties
 
    ;; Built-in stuff (Emacs 23)
    `(default ((t (:background ,background :foreground ,foreground))))
@@ -44,7 +44,7 @@
    `(font-lock-function-name-face ((t (:foreground ,blue))))
    `(font-lock-keyword-face ((t (:foreground ,purple))))
    `(font-lock-string-face ((t (:foreground ,green))))
-   `(font-lock-type-face ((t (:foreground ,blue))))
+   `(font-lock-type-face ((t (:foreground ,yellow))))
    `(font-lock-variable-name-face ((t (:foreground ,red))))
    `(font-lock-warning-face ((t (:foreground ,red))))
 
@@ -77,7 +77,7 @@
    `(rainbow-delimiters-depth-9-face ((t (:foreground ,foreground)))))
 
   (custom-theme-set-variables
-   'tomorrow
+   'tomorrow-night-eighties
 
    `(ansi-color-names-vector
      ;; black, red, green, yellow, blue, magenta, cyan, white
@@ -86,6 +86,6 @@
      ;; black, red, green, yellow, blue, magenta, cyan, white
      [unspecified ,background ,red ,green ,yellow ,blue ,purple ,blue ,foreground])))
 
-(provide-theme 'tomorrow)
+(provide-theme 'tomorrow-night-eighties)
 
-;;; tomorrow-theme.el ends here
+;;; tomorrow-night-eighties-theme.el ends here

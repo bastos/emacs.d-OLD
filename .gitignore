@@ -3,3 +3,5 @@ session.*
 *~
 game/
 tramp
+*.elc
+\#*

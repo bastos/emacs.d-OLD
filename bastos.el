@@ -1,100 +1,59 @@
 ;; Some imports
 (setq load-path (cons "~/.emacs.d" load-path))
 
-(setq load-path (cons "~/.emacs.d/color-theme" load-path))
-
 (setq load-path (cons "~/.emacs.d/gist.el" load-path))
 
 (setq load-path (cons "~/.emacs.d/cheat.el" load-path))
-
-(setq load-path (cons "~/.emacs.d/icicles" load-path))
 
 (setq load-path (cons "~/.emacs.d/textmate.el" load-path))
 
 (setq load-path (cons "~/.emacs.d/jdee/lisp" load-path))
 
 (setq load-path (cons "~/.emacs.d/powerline" load-path))
-;; (setq load-path (cons "~/.emacs.d/android-mode" load-path))
 
 (setq load-path (cons "~/.emacs.d/markdown-mode" load-path))
 
-;; Javascript
-;; emacs --batch --eval '(byte-compile-file "js2-mode.el")'
-(autoload 'js2-mode "js2" nil t)
-(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
+(add-to-list 'load-path "~/.emacs.d/fuzzy-find-in-project")
 
-;; Python
 (autoload 'python-mode "python-mode.el" "Python mode." t)
-
-(setq auto-mode-alist (append '(("/*.\.py$" . python-mode)) 
-			      auto-mode-alist))
-
-;; Ruby
+			    
 (setq load-path (cons "~/.emacs.d/emacs-rails" load-path))
+
 (setq load-path (cons "~/.emacs.d/ruby-mode" load-path))
 
-(autoload 'run-ruby "inf-ruby"
-  "Run an inferior Ruby process")
-(autoload 'inf-ruby-keys "inf-ruby"
-  "Set local key defs for inf-ruby in ruby-mode")
+(require 'rails)
+(require 'snippet)
+(require 'find-recursive) 
+(require 'gist)
+(require 'cheat)
+(require 'textmate)
+(require 'markdown-mode)
+(require 'powerline)
+(require 'fuzzy-find-in-project)
+(require 'tomorrow-night-eighties-theme)
+
+;; Configurations
+
+(autoload 'run-ruby "inf-ruby" 
+"Run an inferior Ruby process")
+
+(autoload 'inf-ruby-keys "inf-ruby" 
+"Set local key defs for inf-ruby in ruby-mode")
+
 (add-hook 'ruby-mode-hook
 	  '(lambda ()
 	     (inf-ruby-keys)
 	     ))
 
-(require 'rails)
-
-;; (require 'ido)
-;; (ido-mode t)
-
-;; Rinari
-;; (add-to-list 'load-path "~/.emacs.d/rinari")
-;; (require 'rinari)
-
-;; Fuzzy Find in Project
-(add-to-list 'load-path "~/.emacs.d/fuzzy-find-in-project")
-(require 'fuzzy-find-in-project)
-
 ;; Example: (set-key "<f11>" 'gdb)
 (defun set-key (kbd funct)
   (global-set-key (read-kbd-macro kbd) funct))
 
-;;(load-file "/usr/share/emacs/site-lisp/cedet/common/cedet.el")
-;;(require 'cedet)
-;; Some requires
-;; (require 'ecb-autoloads)
-(require 'snippet)
-(require 'find-recursive) 
-(require 'psvn)  
-(require 'color-theme)
-(require 'gist)
-(require 'cheat)
-;; (require 'erlang-start)
-;; (require 'twittering-mode)
-;; (require 'icicles)
-(require 'lacarte)
-(require 'textmate)
-
-;; (require 'android-mode)
-
-(require 'markdown-mode)
-
-(require 'powerline)
 (powerline-default)
 
 ;; Theme
-(require 'tomorrow-theme)
-(load-theme 'tomorrow t)
-
-;; Android Mode
-(defcustom android-mode-sdk-dir "~/Apps/android-sdk-linux_86"
-  "Android SDK path"
-  :group 'android-mode
-  :type '(string))
-
-;; JS Mode
-;; (autoload 'js2-mode "js2" nil t)
-;; (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
+(load-theme 'tomorrow-night-eighties t)
+(setq color-theme-is-global t)
 
 ;; ido-mode
 (ido-mode 1)
@@ -104,16 +63,9 @@
 ;; Turning textmate on
 (textmate-mode)
 
-(setq color-theme-is-global t)
-
-;;(load-file "~/.emacs.d/twilight-emacs/color-theme-twilight.el")
-;;(color-theme-twilight)
 ; pick your font
 ; M-x describe-font
 (setq default-frame-alist '((font . "-unknown-Monaco-normal-normal-normal-*-14-*-*-*-m-0-iso10646-1")))
-;;(cua-mode)
-
-;; (ecb-activate)
 
 ;; Comment region
 (defalias 'cr 'comment-region)
@@ -149,63 +101,7 @@
 (setq ring-bell-function 'ignore)
 
 ;; Aliases
-
 (defalias 'qrr 'query-replace-regexp)
-
-;; Window resize
-(defun win-resize-top-or-bot ()
-  "Figure out if the current window is on top, bottom or in the
-middle"
-  (let* ((win-edges (window-edges))
-	 (this-window-y-min (nth 1 win-edges))
-	 (this-window-y-max (nth 3 win-edges))
-	 (fr-height (frame-height)))
-    (cond
-     ((eq 0 this-window-y-min) "top")
-     ((eq (- fr-height 1) this-window-y-max) "bot")
-     (t "mid"))))
-
-(defun win-resize-left-or-right ()
-  "Figure out if the current window is to the left, right or in the
-middle"
-  (let* ((win-edges (window-edges))
-	 (this-window-x-min (nth 0 win-edges))
-	 (this-window-x-max (nth 2 win-edges))
-	 (fr-width (frame-width)))
-    (cond
-     ((eq 0 this-window-x-min) "left")
-     ((eq (+ fr-width 4) this-window-x-max) "right")
-     (t "mid"))))
-
-(defun win-resize-enlarge-horiz ()
-  (interactive)
-  (cond
-   ((equal "top" (win-resize-top-or-bot)) (enlarge-window -1))
-   ((equal "bot" (win-resize-top-or-bot)) (enlarge-window 1))
-   ((equal "mid" (win-resize-top-or-bot)) (enlarge-window -1))
-   (t (message "nil"))))
-
-(defun win-resize-minimize-horiz ()
-  (interactive)
-  (cond
-   ((equal "top" (win-resize-top-or-bot)) (enlarge-window 1))
-   ((equal "bot" (win-resize-top-or-bot)) (enlarge-window -1))
-   ((equal "mid" (win-resize-top-or-bot)) (enlarge-window 1))
-   (t (message "nil"))))
-
-(defun win-resize-enlarge-vert ()
-  (interactive)
-  (cond
-   ((equal "left" (win-resize-left-or-right)) (enlarge-window-horizontally -1))
-   ((equal "right" (win-resize-left-or-right)) (enlarge-window-horizontally 1))
-   ((equal "mid" (win-resize-left-or-right)) (enlarge-window-horizontally -1))))
-
-(defun win-resize-minimize-vert ()
-  (interactive)
-  (cond
-   ((equal "left" (win-resize-left-or-right)) (enlarge-window-horizontally 1))
-   ((equal "right" (win-resize-left-or-right)) (enlarge-window-horizontally -1))
-   ((equal "mid" (win-resize-left-or-right)) (enlarge-window-horizontally 1))))
 
 (set-key "<f11>"  'menu-bar-mode)
 (global-set-key [C-tab] 'other-window) ;; vimy window switching
@@ -226,6 +122,7 @@ middle"
 
 ;; Powerline
 (setq powerline-color1 "#ffffff")
+
 (setq powerline-color2 "#333333")
 
 (set-face-attribute 'mode-line nil
