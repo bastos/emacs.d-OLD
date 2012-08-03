@@ -60,9 +60,6 @@
 (setq ido-enable-flex-matching t)
 (ido-everywhere 1)
 
-;; Turning textmate on
-(textmate-mode)
-
 ; pick your font
 ; M-x describe-font
 (setq default-frame-alist '((font . "-unknown-Monaco-normal-normal-normal-*-14-*-*-*-m-0-iso10646-1")))
@@ -181,3 +178,7 @@
 
 (global-set-key (kbd "M-<up>") 'move-line-up)
 (global-set-key (kbd "M-<down>") 'move-line-down)
+
+;; Turning textmate on
+(textmate-mode)
+
