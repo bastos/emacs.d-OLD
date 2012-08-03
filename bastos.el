@@ -11,15 +11,15 @@
 
 (setq load-path (cons "~/.emacs.d/powerline" load-path))
 
+(setq load-path (cons "~/.emacs.d/rinari" load-path))
+
 (setq load-path (cons "~/.emacs.d/markdown-mode" load-path))
 
 (add-to-list 'load-path "~/.emacs.d/fuzzy-find-in-project")
 
 (autoload 'python-mode "python-mode.el" "Python mode." t)
 			    
-(setq load-path (cons "~/.emacs.d/emacs-rails" load-path))
-
-(require 'rails)
+(require 'rinari)
 (require 'snippet)
 (require 'find-recursive) 
 (require 'gist)
