@@ -19,8 +19,6 @@
 			    
 (setq load-path (cons "~/.emacs.d/emacs-rails" load-path))
 
-(setq load-path (cons "~/.emacs.d/ruby-mode" load-path))
-
 (require 'rails)
 (require 'snippet)
 (require 'find-recursive) 
@@ -33,17 +31,6 @@
 (require 'tomorrow-night-eighties-theme)
 
 ;; Configurations
-
-(autoload 'run-ruby "inf-ruby" 
-"Run an inferior Ruby process")
-
-(autoload 'inf-ruby-keys "inf-ruby" 
-"Set local key defs for inf-ruby in ruby-mode")
-
-(add-hook 'ruby-mode-hook
-	  '(lambda ()
-	     (inf-ruby-keys)
-	     ))
 
 ;; Example: (set-key "<f11>" 'gdb)
 (defun set-key (kbd funct)
