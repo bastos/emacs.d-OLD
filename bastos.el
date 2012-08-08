@@ -18,6 +18,12 @@
 (add-to-list 'load-path "~/.emacs.d/fuzzy-find-in-project")
 
 (autoload 'python-mode "python-mode.el" "Python mode." t)
+
+(autoload 'less-css-mode "less-css-mode.el" "Less Mode." t)
+
+(autoload 'haml-mode "haml-mode.el" "HAML Mode." t)
+
+(autoload 'sass-mode "sass-mode.el" "Sass Mode." t)
 			    
 (require 'rinari)
 (require 'snippet)
@@ -29,6 +35,9 @@
 (require 'powerline)
 (require 'fuzzy-find-in-project)
 (require 'tomorrow-night-eighties-theme)
+(require 'less-css-mode)
+(require 'haml-mode)
+(require 'sass-mode)
 
 ;; Configurations
 
@@ -47,9 +56,15 @@
 (setq ido-enable-flex-matching t)
 (ido-everywhere 1)
 
+;; Ident
+
+(setq js2-mode-hook
+  '(lambda () (progn
+    (setq-default js2-basic-offset 2)
+    (set-variable 'indent-tabs-mode nil))))
+
 ; pick your font
-; M-x describe-font
-(setq default-frame-alist '((font . "-unknown-Monaco-normal-normal-normal-*-14-*-*-*-m-0-iso10646-1")))
+(set-frame-font "Monaco-15")
 
 ;; Comment region
 (defalias 'cr 'comment-region)
@@ -61,6 +76,10 @@
 ;;(recentf-open-files nil "*Recent Files*")
 (setq recentf-max-saved-items 1200)
 
+;; Backups and autosave
+(setq make-backup-files nil)
+(setq auto-save-default nil)
+
 (defun yes-or-no-p (prompt)
   "replace tedious yes/no+enter with y/n keypress"
   (ding t)
@@ -71,6 +90,15 @@
 
 ;; remove toolbar
 (tool-bar-mode 0)
+
+;; Paren 
+(show-paren-mode t)
+
+;; Scrollbar
+(scroll-bar-mode -1)
+
+;; Startup
+(setq inhibit-startup-message t)
 
 ;; Count TODO's: http://gist.github.com/20152
 (defun count-todos-in-buffer ()
