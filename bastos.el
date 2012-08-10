@@ -191,8 +191,8 @@
 ;;(global-set-key (kbd "M-<up>") 'move-region-up)
 ;;(global-set-key (kbd "M-<down>") 'move-region-down)
 
-(global-set-key (kbd "M-<up>") 'move-line-up)
-(global-set-key (kbd "M-<down>") 'move-line-down)
+(global-set-key  [(super up)] 'move-line-up)
+(global-set-key  [(super down)] 'move-line-down)
 
 ;; Turning textmate on
 (textmate-mode)
