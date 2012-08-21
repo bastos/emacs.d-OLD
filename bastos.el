@@ -24,10 +24,10 @@
 (autoload 'haml-mode "haml-mode.el" "HAML Mode." t)
 
 (autoload 'sass-mode "sass-mode.el" "Sass Mode." t)
-			    
+
 (require 'rinari)
 (require 'snippet)
-(require 'find-recursive) 
+(require 'find-recursive)
 (require 'gist)
 (require 'cheat)
 (require 'textmate)
@@ -40,6 +40,10 @@
 (require 'sass-mode)
 
 ;; Configurations
+
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+
+(global-auto-revert-mode 1)
 
 ;; Example: (set-key "<f11>" 'gdb)
 (defun set-key (kbd funct)
@@ -91,7 +95,7 @@
 ;; remove toolbar
 (tool-bar-mode 0)
 
-;; Paren 
+;; Paren
 (show-paren-mode t)
 
 ;; Scrollbar
@@ -106,7 +110,7 @@
   (save-excursion
     (goto-char (point-min))
     (message "Number of TODO's in the current buffer: %d" (count-matches "TODO"))))
-    
+
 (set-key "<C-f7>" 'count-todos-in-buffer)
 
 ;; turn off the annoying alarm bell
